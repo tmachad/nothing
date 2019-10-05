@@ -57,19 +57,27 @@ public class GameManager : MonoBehaviour
         {
             if (goalLower == w.ToLower())
             {
-                StartCoroutine(LoadScene(nextSceneName));
+                StartCoroutine(TransitionToScene(nextSceneName));
             }
         }
     }
 
     public void RestartLevel()
     {
-        StartCoroutine(LoadScene(SceneManager.GetActiveScene().name));
+        StartCoroutine(TransitionToScene(SceneManager.GetActiveScene().name));
     }
 
-    private IEnumerator LoadScene(string sceneName)
+    public void LoadScene(string sceneName)
     {
-        player.inputEnabled = false;    // Stop player from doing anything that might cause issues while fading out
+        StartCoroutine(TransitionToScene(sceneName));
+    }
+
+    private IEnumerator TransitionToScene(string sceneName)
+    {
+        if (player != null)
+        {
+            player.inputEnabled = false;    // Stop player from doing anything that might cause issues while fading out
+        }
         fadePanel.CrossFadeAlpha(1, fadeOutTime, false);
 
         sfxSource.clip = fadeOutClip;
