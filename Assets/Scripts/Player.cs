@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : PushyObject
 {
     public float stepDelay = 1.0f;
+    public bool inputEnabled = true;
 
     private float remainingDelay = 0.0f;
 
@@ -15,17 +16,19 @@ public class Player : PushyObject
             Input.GetAxisRaw("Vertical")
         );
 
-        if (remainingDelay <= 0 && (input.x != 0 || input.y != 0))
+        if (remainingDelay <= 0 && (input.x != 0 || input.y != 0) && inputEnabled)
         {
             Vector2Int moveDir = new Vector2Int((int)input.x, (int)(input.x == 0 ? input.y : 0));
             if (CanMove(moveDir.x, moveDir.y))
             {
                 Move(moveDir.x, moveDir.y);
                 remainingDelay = stepDelay;
+
+                GameManager.Instance.CheckWinCondition();
             }
         } else if (input.x == 0 && input.y == 0)
         {
-            remainingDelay = 0; // Instantly reset delay if player stops pressing keys to allow for fast movement 
+            remainingDelay = 0; // Instantly reset delay if player stops pressing keys to allow for fast movement
         } else
         {
             remainingDelay -= Time.deltaTime;
