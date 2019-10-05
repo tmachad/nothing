@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MovableObject : MonoBehaviour
 {
     public LayerMask walkableLayers;
+
+    public float moveTime = 0.2f;
+    public float moveDelay = 0f;
 
     public virtual void Move(int x, int y)
     {
@@ -13,6 +17,30 @@ public class MovableObject : MonoBehaviour
         newPos.z += y;
 
         transform.position = newPos;
+    }
+
+    public virtual IEnumerator LerpMove(int x, int y, UnityAction onFinish = null)
+    {
+        Vector3 origin = transform.position;
+        Vector3 destination = transform.position + new Vector3(x, 0, y);
+
+        if (moveDelay > 0)
+        {
+            yield return new WaitForSeconds(moveDelay);
+        }
+
+        for (float timeLeft = moveTime; timeLeft > 0; timeLeft -= Time.deltaTime)
+        {
+            transform.position = Vector3.Lerp(origin, destination, 1 - (timeLeft / moveTime));
+            yield return 0;     // Wait for next frame
+        }
+
+        transform.position = destination;
+
+        if (onFinish != null)
+        {
+            onFinish.Invoke();
+        }
     }
 
     public virtual bool CanMove(int x, int y)

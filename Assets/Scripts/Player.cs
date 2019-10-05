@@ -21,14 +21,12 @@ public class Player : PushyObject
             Vector2Int moveDir = new Vector2Int((int)input.x, (int)(input.x == 0 ? input.y : 0));
             if (CanMove(moveDir.x, moveDir.y))
             {
-                Move(moveDir.x, moveDir.y);
+                StartCoroutine(LerpMove(moveDir.x, moveDir.y, GameManager.Instance.CheckWinCondition));
                 remainingDelay = stepDelay;
-
-                GameManager.Instance.CheckWinCondition();
             }
-        } else if (input.x == 0 && input.y == 0)
-        {
-            remainingDelay = 0; // Instantly reset delay if player stops pressing keys to allow for fast movement
+        //} else if (input.x == 0 && input.y == 0)
+        //{
+        //    remainingDelay = 0; // Instantly reset delay if player stops pressing keys to allow for fast movement
         } else
         {
             remainingDelay -= Time.deltaTime;

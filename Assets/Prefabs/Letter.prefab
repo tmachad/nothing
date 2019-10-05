@@ -109,6 +109,8 @@ MonoBehaviour:
   walkableLayers:
     serializedVersion: 2
     m_Bits: 256
+  moveTime: 0.15
+  moveDelay: 0.05
   letterLayer:
     serializedVersion: 2
     m_Bits: 512

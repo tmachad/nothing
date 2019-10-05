@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PushyObject : MovableObject
 {
@@ -23,6 +24,21 @@ public class PushyObject : MovableObject
         newPos.z += y;
 
         transform.position = newPos;
+    }
+
+    public override IEnumerator LerpMove(int x, int y, UnityAction onFinish = null)
+    {
+        Vector3 moveDir = new Vector3(x, 0, y);
+        RaycastHit hit;
+
+        Physics.Raycast(transform.position, moveDir, out hit, 1.0f);
+        if (hit.collider != null && hit.collider.gameObject.GetComponent<MovableObject>() != null)
+        {
+            // There's something in the way that is movable
+            StartCoroutine(hit.collider.gameObject.GetComponent<MovableObject>().LerpMove(x, y));
+        }
+
+        return base.LerpMove(x, y, onFinish);
     }
 
     public override bool CanMove(int x, int y)

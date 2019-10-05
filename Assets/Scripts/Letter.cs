@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Letter : MovableObject
 {
     public LayerMask letterLayer;
+
     private Text textObj;
 
     private void Awake()
