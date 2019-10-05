@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public float fadeInTime = 1.0f;
     public float fadeOutTime = 1.0f;
 
+    public AudioSource sfxSource;
+    public AudioClip fadeOutClip;
+
+    public AudioSource musicSource;
+
     private void Awake()
     {
         Instance = this;
@@ -67,7 +72,17 @@ public class GameManager : MonoBehaviour
         player.inputEnabled = false;    // Stop player from doing anything that might cause issues while fading out
         fadePanel.CrossFadeAlpha(1, fadeOutTime, false);
 
-        yield return new WaitForSeconds(fadeOutTime);
+        sfxSource.clip = fadeOutClip;
+        sfxSource.Play();
+
+        float initialVolume = musicSource.volume;
+
+        for(float timeLeft = fadeOutTime; timeLeft > 0; timeLeft -= Time.deltaTime)
+        {
+            musicSource.volume = initialVolume * (timeLeft / fadeOutTime);
+            yield return 0;
+        }
+
         SceneManager.LoadScene(sceneName);
     }
 }

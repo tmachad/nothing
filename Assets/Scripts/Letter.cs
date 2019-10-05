@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class Letter : MovableObject
@@ -8,10 +9,18 @@ public class Letter : MovableObject
     public LayerMask letterLayer;
 
     private Text textObj;
+    private AudioSource audioSource;
 
     private void Awake()
     {
         textObj = GetComponentInChildren<Text>();
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    public override IEnumerator LerpMove(int x, int y, UnityAction onFinish = null)
+    {
+        audioSource.Play();
+        return base.LerpMove(x, y, onFinish);
     }
 
     public string GetText()
