@@ -27,6 +27,14 @@ public class GameManager : MonoBehaviour
         fadePanel.CrossFadeAlpha(0, fadeInTime, false);
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            RestartLevel();
+        }
+    }
+
     public void CheckWinCondition()
     {
         Physics.SyncTransforms();
