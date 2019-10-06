@@ -841,6 +841,7 @@ MonoBehaviour:
   slider: {fileID: 46005946}
   identifier: MasterVolume
   defaultValue: 4
+  audioSource: {fileID: 801597196}
 --- !u!114 &46005946
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,7 +855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -891,7 +892,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2135667191}
         m_MethodName: SetMasterVolume
         m_Mode: 0
         m_Arguments:
@@ -905,6 +906,17 @@ MonoBehaviour:
       - m_Target: {fileID: 46005945}
         m_MethodName: UpdateSavedValue
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 801597196}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1295,7 +1307,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: I
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &64083340 stripped
 Transform:
@@ -1981,7 +2011,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: E
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &129132259 stripped
 Transform:
@@ -2226,7 +2258,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: U
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &140384437 stripped
 Transform:
@@ -3221,7 +3271,6 @@ GameObject:
   - component: {fileID: 214152973}
   - component: {fileID: 214152972}
   - component: {fileID: 214152971}
-  - component: {fileID: 214152970}
   - component: {fileID: 214152969}
   m_Layer: 9
   m_Name: Volume Slider Tile
@@ -3341,26 +3390,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &214152970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 214152967}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a19360acb4f37740b189e606941f4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkableLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  moveTime: 0.15
-  moveDelay: 0.05
-  letterLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!65 &214152971
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4987,7 +5016,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: +
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &350123415 stripped
 Transform:
@@ -5151,7 +5182,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: T
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &354812010 stripped
 Transform:
@@ -5360,7 +5409,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: M
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &361165942 stripped
 Transform:
@@ -5766,7 +5817,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: '-'
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &390659250 stripped
 Transform:
@@ -6059,7 +6112,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: C
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &409464209 stripped
 Transform:
@@ -6828,7 +6883,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: '-'
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &459909104 stripped
 Transform:
@@ -7494,7 +7551,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: E
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &477330713 stripped
 Transform:
@@ -7583,13 +7658,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1590821421}
         m_MethodName: GoToPosition
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -7717,7 +7792,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: N
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &481900356 stripped
 Transform:
@@ -7854,36 +7947,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482439271}
   m_CullTransparentMesh: 0
---- !u!1 &500404887
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 500404888}
-  m_Layer: 0
-  m_Name: Letters
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &500404888
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 500404887}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 730438744}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &506291658
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8397,7 +8460,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: N
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &513321061 stripped
 Transform:
@@ -8648,7 +8729,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: A
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &527801729 stripped
 Transform:
@@ -8968,7 +9067,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: T
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &552128764 stripped
 Transform:
@@ -9373,7 +9490,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: E
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &589272783 stripped
 Transform:
@@ -9468,7 +9603,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: U
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &597471014 stripped
 Transform:
@@ -9698,7 +9851,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: L
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &611951281 stripped
 Transform:
@@ -10012,7 +10167,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: R
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &618946130 stripped
 Transform:
@@ -10398,7 +10571,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: V
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &652834049 stripped
 Transform:
@@ -11250,7 +11425,6 @@ GameObject:
   - component: {fileID: 714837746}
   - component: {fileID: 714837745}
   - component: {fileID: 714837744}
-  - component: {fileID: 714837743}
   - component: {fileID: 714837742}
   m_Layer: 9
   m_Name: Volume Slider Tile
@@ -11370,26 +11544,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &714837743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714837740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a19360acb4f37740b189e606941f4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkableLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  moveTime: 0.15
-  moveDelay: 0.05
-  letterLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!65 &714837744
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11622,7 +11776,6 @@ Transform:
   m_Children:
   - {fileID: 976051792}
   - {fileID: 1883603355}
-  - {fileID: 500404888}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12381,7 +12534,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: T
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &781313982 stripped
 Transform:
@@ -12851,7 +13022,6 @@ GameObject:
   - component: {fileID: 801597200}
   - component: {fileID: 801597199}
   - component: {fileID: 801597198}
-  - component: {fileID: 801597197}
   - component: {fileID: 801597196}
   m_Layer: 9
   m_Name: Volume Slider Tile
@@ -12971,26 +13141,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &801597197
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 801597194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a19360acb4f37740b189e606941f4c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  walkableLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  moveTime: 0.15
-  moveDelay: 0.05
-  letterLayer:
-    serializedVersion: 2
-    m_Bits: 512
 --- !u!65 &801597198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14767,7 +14917,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: R
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &977293018 stripped
 Transform:
@@ -15536,7 +15704,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: O
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1035564764 stripped
 Transform:
@@ -16003,7 +16189,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: O
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1069050422 stripped
 Transform:
@@ -16290,7 +16478,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: B
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1093218777 stripped
 Transform:
@@ -16762,7 +16952,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: U
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1128823531 stripped
 Transform:
@@ -17530,7 +17722,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: S
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1172274185 stripped
 Transform:
@@ -17721,7 +17931,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: F
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1195824047 stripped
 Transform:
@@ -17816,7 +18028,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: S
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1207404922 stripped
 Transform:
@@ -17986,7 +18216,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: E
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1215538928 stripped
 Transform:
@@ -18493,7 +18741,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: S
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1245768980 stripped
 Transform:
@@ -18573,7 +18823,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: X
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1254338530 stripped
 Transform:
@@ -18668,7 +18920,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: R
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1254628307 stripped
 Transform:
@@ -18966,7 +19236,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: A
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1306465446 stripped
 Transform:
@@ -19340,6 +19612,7 @@ MonoBehaviour:
   slider: {fileID: 1358949057}
   identifier: SFXVolume
   defaultValue: 3
+  audioSource: {fileID: 714837742}
 --- !u!114 &1358949057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19353,7 +19626,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -19390,7 +19663,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2135667191}
         m_MethodName: SetSFXVolume
         m_Mode: 0
         m_Arguments:
@@ -19404,6 +19677,17 @@ MonoBehaviour:
       - m_Target: {fileID: 1358949056}
         m_MethodName: UpdateSavedValue
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 714837742}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19784,7 +20068,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: I
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1383538962 stripped
 Transform:
@@ -21238,7 +21524,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: E
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1497605163 stripped
 Transform:
@@ -21408,7 +21712,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: S
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1506049458 stripped
 Transform:
@@ -21686,7 +22008,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: K
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1536846235 stripped
 Transform:
@@ -23699,7 +24023,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: '-'
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1633502949 stripped
 Transform:
@@ -24475,7 +24801,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: P
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1686389097 stripped
 Transform:
@@ -25481,7 +25825,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1847625072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25, y: 0, z: 0}
+  m_LocalPosition: {x: -25, y: 0, z: -25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1886898694}
@@ -25733,7 +26077,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: M
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1872994918 stripped
 Transform:
@@ -25833,7 +26195,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: +
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1877231669 stripped
 Transform:
@@ -25913,7 +26277,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: C
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1879310654 stripped
 Transform:
@@ -26881,7 +27247,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: S
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1925026480 stripped
 Transform:
@@ -26981,7 +27349,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: +
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1932461387 stripped
 Transform:
@@ -27430,7 +27800,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: M
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &1974351874 stripped
 Transform:
@@ -27825,6 +28197,7 @@ MonoBehaviour:
   slider: {fileID: 2004873634}
   identifier: MusicVolume
   defaultValue: 4
+  audioSource: {fileID: 214152969}
 --- !u!114 &2004873634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27838,7 +28211,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -27875,7 +28248,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2135667191}
         m_MethodName: SetMusicVolume
         m_Mode: 0
         m_Arguments:
@@ -27889,6 +28262,17 @@ MonoBehaviour:
       - m_Target: {fileID: 2004873633}
         m_MethodName: UpdateSavedValue
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 214152969}
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -28290,7 +28674,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: M
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &2028401578 stripped
 Transform:
@@ -28544,7 +28946,9 @@ PrefabInstance:
       propertyPath: m_Text
       value: U
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &2056627027 stripped
 Transform:
@@ -29138,7 +29542,25 @@ PrefabInstance:
       propertyPath: m_Text
       value: O
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: walkableLayers.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: moveDelay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+      propertyPath: letterLayer.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 1139044674, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
+    - {fileID: 5866745819025570073, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cda00e3a3e77c4f458a5728cb38a68b3, type: 3}
 --- !u!4 &2103144394 stripped
 Transform:
@@ -29587,6 +30009,54 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2130197209}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2135667190
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2135667192}
+  - component: {fileID: 2135667191}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2135667191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135667190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e1eb79aab5e6f4baf4f49682dfeae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24100000, guid: 05e80f12516369a4ea271447266cabc5, type: 2}
+  minVolumeLevel: 0.0001
+  maxVolumeLevel: 1
+  minSliderValue: 0
+  maxSliderValue: 4
+--- !u!4 &2135667192
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2135667190}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -14.594783, y: -49.912468, z: 28.822048}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2137984279
 PrefabInstance:
   m_ObjectHideFlags: 0
