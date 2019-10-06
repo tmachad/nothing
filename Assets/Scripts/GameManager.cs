@@ -91,6 +91,12 @@ public class GameManager : MonoBehaviour
             yield return 0;
         }
 
-        SceneManager.LoadScene(sceneName);
+        if (sceneName == "Quit")
+        {
+            Application.Quit();
+        } else
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

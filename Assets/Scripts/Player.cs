@@ -32,4 +32,9 @@ public class Player : PushyObject
             remainingDelay -= Time.deltaTime;
         }
     }
+
+    public void SetInputEnabled(bool enabled)
+    {
+        inputEnabled = enabled;
+    }
 }
