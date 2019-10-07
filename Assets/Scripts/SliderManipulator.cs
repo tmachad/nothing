@@ -43,7 +43,7 @@ public class SliderManipulator : MonoBehaviour
 
     private IEnumerator Unmute()
     {
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.25f);
         audioSource.mute = false;
     }
 }
