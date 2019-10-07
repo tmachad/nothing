@@ -5,6 +5,8 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager Instance;
+
     public AudioMixer audioMixer;
 
     public float minVolumeLevel = 0.0001f;
@@ -12,6 +14,23 @@ public class AudioManager : MonoBehaviour
 
     public float minSliderValue = 0;
     public float maxSliderValue = 4;
+
+    public AudioSource musicSource;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+    private void OnEnable()
+    {
+        musicSource.time = PlayerPrefs.GetFloat("MusicTrackPosition", 0);
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.DeleteKey("MusicTrackPosition");
+    }
 
     public void SetMasterVolume(float sliderValue)
     {
@@ -32,5 +51,30 @@ public class AudioManager : MonoBehaviour
     {
         float logValue = (sliderValue - minSliderValue) * ((maxVolumeLevel - minVolumeLevel) / (maxSliderValue - minSliderValue)) + minVolumeLevel;
         audioMixer.SetFloat(mixName + "Vol", Mathf.Log10(logValue) * 20);
+    }
+
+    public void SaveTrackPosition()
+    {
+        PlayerPrefs.SetFloat("MusicTrackPosition", musicSource.time);
+    }
+
+    public IEnumerator FadeMusic(bool fadeIn, float duration)
+    {
+        float startingVol, endingVol;
+        if (fadeIn)
+        {
+            startingVol = 0;
+            endingVol = 1;
+        } else
+        {
+            startingVol = 1;
+            endingVol = 0;
+        }
+
+        for (float timeLeft = duration; timeLeft > 0; timeLeft -= Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(startingVol, endingVol, 1 - (timeLeft / duration));
+            yield return 0;
+        }
     }
 }

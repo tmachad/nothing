@@ -20,8 +20,6 @@ public class GameManager : MonoBehaviour
     public AudioSource sfxSource;
     public AudioClip fadeOutClip;
 
-    public AudioSource musicSource;
-
     private void Awake()
     {
         Instance = this;
@@ -30,6 +28,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         fadePanel.CrossFadeAlpha(0, fadeInTime, false);
+        AudioManager.Instance.FadeMusic(true, fadeInTime);
     }
 
     private void Update()
@@ -83,13 +82,12 @@ public class GameManager : MonoBehaviour
         sfxSource.clip = fadeOutClip;
         sfxSource.Play();
 
-        float initialVolume = musicSource.volume;
 
-        for(float timeLeft = fadeOutTime; timeLeft > 0; timeLeft -= Time.deltaTime)
-        {
-            musicSource.volume = initialVolume * (timeLeft / fadeOutTime);
-            yield return 0;
-        }
+        StartCoroutine(AudioManager.Instance.FadeMusic(false, fadeOutTime));
+
+        yield return new WaitForSeconds(fadeOutTime);
+
+        AudioManager.Instance.SaveTrackPosition();
 
         if (sceneName == "Quit")
         {

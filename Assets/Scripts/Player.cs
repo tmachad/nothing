@@ -7,6 +7,8 @@ public class Player : PushyObject
     public float stepDelay = 1.0f;
     public bool inputEnabled = true;
 
+    public AudioSource sfxSource;
+
     private float remainingDelay = 0.0f;
 
     private void Update()
@@ -22,11 +24,9 @@ public class Player : PushyObject
             if (CanMove(moveDir.x, moveDir.y))
             {
                 StartCoroutine(LerpMove(moveDir.x, moveDir.y, GameManager.Instance.CheckWinCondition));
+                sfxSource.Play();
                 remainingDelay = stepDelay;
             }
-        //} else if (input.x == 0 && input.y == 0)
-        //{
-        //    remainingDelay = 0; // Instantly reset delay if player stops pressing keys to allow for fast movement
         } else
         {
             remainingDelay -= Time.deltaTime;
