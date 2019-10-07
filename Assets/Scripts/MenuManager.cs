@@ -10,10 +10,13 @@ public class MenuManager : MonoBehaviour
 
     public float cameraMoveTime;
 
+    public AudioSource sfxSource;
+
     public void GoToPosition(int index)
     {
         if (index < cameraPositions.Length)
         {
+            sfxSource.Play();
             StartCoroutine(MoveTo(cameraPositions[index]));
         }
     }
